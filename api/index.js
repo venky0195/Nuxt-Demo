@@ -1,14 +1,11 @@
-const express = require('express')
-const app = express()
+const bodyParser = require('body-parser')
+const app = require('express')()
 
-const hello = require('./hello')
-app.use(hello)
-
-if (require.main === module) {
-  const port = 3000
-  app.listen(port, () => {
-    console.log(`API server listening on port ${port}`)
-  })
-}
-
+app.use(bodyParser.json())
+app.all('/hello', (req, res) => {
+  res.status(200).send('Hello World!')
+})
+app.all('/test', (req, res) => {
+  res.status(200).send('testing')
+})
 module.exports = app
