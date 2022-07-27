@@ -1,4 +1,4 @@
 export default function (req, res, next) {
-    console.log("helloooo",req.url)
+    console.log("server middleware running",req.url)
     next()
   }

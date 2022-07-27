@@ -9,6 +9,7 @@
   export default {
     async asyncData({ params, $http }) {
       const post = await $http.$get(`https://api.nuxtjs.dev/posts/${params.id}`)
+      console.log("fetching data for id: ",params.id);
       return { post }
     }
   }
